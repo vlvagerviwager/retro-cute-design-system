@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components — retro-cute design system</title>
+    <meta
+      name="description"
+      content="Live demos, code samples, props, and accessibility notes for every retro-cute component: typography, button, pill, dropdown, card, and header card."
+    />
+    <meta name="theme-color" content="#8f9fe6" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="stylesheet" href="../src/tokens.css" />
+    <script>
+      try {
+        var savedTheme = localStorage.getItem("retro-cute-design-system:theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (error) {
+        /* private mode or old browser: fall back to light theme */
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="relative border-b-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-card)]">
+      <div
+        class="mx-auto flex w-full max-w-[var(--rc-page-max-width)] flex-wrap items-center gap-[var(--rc-space-md)] px-[var(--rc-space-md)] py-[var(--rc-space-sm)]"
+      >
+        <a
+          href="../"
+          class="flex items-center gap-[var(--rc-space-sm)] font-bold text-[var(--rc-color-ink)] no-underline"
+          aria-label="retro-cute design system home"
+        >
+          <span class="inline-flex gap-[var(--rc-space-xs)]" aria-hidden="true">
+            <span class="inline-block h-[var(--rc-size-dot)] w-[var(--rc-size-dot)] rounded-full border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-red)]"></span>
+            <span class="inline-block h-[var(--rc-size-dot)] w-[var(--rc-size-dot)] rounded-full border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-yellow)]"></span>
+            <span class="inline-block h-[var(--rc-size-dot)] w-[var(--rc-size-dot)] rounded-full border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-navy)]"></span>
+          </span>
+          retro-cute
+        </a>
+        <nav class="flex flex-wrap items-center gap-[var(--rc-space-sm)]" aria-label="Site">
+          <rc-link href="../">Home</rc-link>
+          <rc-link href="https://github.com/vlvagerviwager/retro-cute-design-system">GitHub</rc-link>
+        </nav>
+        <div class="ml-auto flex items-center gap-[var(--rc-space-sm)]">
+          <rc-button size="sm" data-theme-toggle type="button">dark mode</rc-button>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-shell">
+      <div class="flex flex-col gap-[var(--rc-space-lg)] lg:flex-row">
+        <aside class="lg:w-[var(--rc-docs-nav-width)] lg:shrink-0" aria-label="Component docs navigation">
+          <nav class="docs-nav lg:sticky lg:top-[var(--rc-space-lg)] lg:max-h-[calc(100vh_-_var(--rc-space-xl))] lg:flex-col lg:overflow-visible lg:pb-0" aria-label="Components">
+            <a class="docs-nav-link" data-docs-nav-link href="#overview">Overview</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#tokens">Tokens</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#typography">Typography</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#button">Button</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#pill">Pill</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#dropdown">Dropdown</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#card">Card</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#header-card">Header card</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#theming">Theming</a>
+            <a class="docs-nav-link" data-docs-nav-link href="#accessibility">Accessibility</a>
+          </nav>
+        </aside>
+
+        <main id="main" class="flex min-w-0 flex-1 flex-col gap-[var(--rc-space-xl)]">
+          <section id="overview" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Overview">
+            <rc-heading level="1">Components</rc-heading>
+            <rc-text variant="muted">
+              Six components ported from the aesthetic job board, rebuilt as typed Lit Web
+              Components on named tokens. Every demo on this page is live — toggle the theme in
+              the header to check both modes.
+            </rc-text>
+            <rc-card tone="sun">
+              <span slot="titlebar">how to read each section</span>
+              <rc-text>Live demo first, then the code to copy, then props, then accessibility notes.</rc-text>
+            </rc-card>
+          </section>
+
+          <section id="tokens" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Design tokens">
+            <rc-heading level="2">Tokens</rc-heading>
+            <rc-text variant="muted">
+              The single source of truth lives in <rc-link href="https://github.com/vlvagerviwager/retro-cute-design-system/blob/main/src/tokens.css">tokens.css</rc-link>,
+              mirrored for TypeScript in tokens.ts. Components reference
+              <code>var(--rc-*)</code> or Tailwind theme utilities — a CI check
+              (<code>bun run lint:tokens</code>) fails raw hex or pixel literals anywhere else.
+            </rc-text>
+            <rc-heading level="3">Light palette</rc-heading>
+            <div class="swatch-grid" data-palette-swatch="light" role="list" aria-label="Light theme swatches"></div>
+            <rc-heading level="3">Dark palette</rc-heading>
+            <div class="swatch-grid" data-palette-swatch="dark" role="list" aria-label="Dark theme swatches"></div>
+            <pre class="docs-code"><code>@import "retro-cute-design-system/tokens.css";
+
+.my-panel {
+  background: var(--rc-color-card);
+  border: var(--rc-border-width) solid var(--rc-color-border);
+  border-radius: var(--rc-radius-card);
+  padding: var(--rc-space-lg);
+}</code></pre>
+          </section>
+
+          <section id="typography" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Typography">
+            <rc-heading level="2">Typography</rc-heading>
+            <rc-text variant="muted">
+              Display headings in Cooper Black with an Avenir Next fallback, body text in Avenir
+              Next, and links with a thick offset underline. Headings render the requested
+              level so the document outline stays meaningful.
+            </rc-text>
+            <rc-card>
+              <span slot="titlebar">live demo</span>
+              <rc-heading level="1">Heading one</rc-heading>
+              <rc-heading level="2">Heading two</rc-heading>
+              <rc-heading level="3">Heading three</rc-heading>
+              <rc-text>This is body text with a comfortable line height.</rc-text>
+              <rc-text variant="muted">This is muted text for subtitles and hints.</rc-text>
+              <rc-text variant="small">This is small text for metadata lines.</rc-text>
+              <p><rc-link href="#typography">This is a link</rc-link> inside a sentence.</p>
+            </rc-card>
+            <pre class="docs-code"><code>&lt;rc-heading level="1"&gt;Heading one&lt;/rc-heading&gt;
+&lt;rc-text variant="muted"&gt;Subtitle copy.&lt;/rc-text&gt;
+&lt;rc-link href="/roles"&gt;View roles&lt;/rc-link&gt;</code></pre>
+            <table class="props-table">
+              <caption class="sr-only">Typography props</caption>
+              <thead>
+                <tr><th scope="col">Element</th><th scope="col">Prop</th><th scope="col">Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>rc-heading</code></td><td><code>level</code></td><td>1–6, default 2 (clamped)</td></tr>
+                <tr><td><code>rc-text</code></td><td><code>variant</code></td><td>body, muted, small</td></tr>
+                <tr><td><code>rc-link</code></td><td><code>href</code></td><td>any URL, default #</td></tr>
+              </tbody>
+            </table>
+            <rc-text variant="small">A11y: real heading elements, never skipped levels in page order; links keep a visible underline plus a thick focus ring and never rely on color alone.</rc-text>
+          </section>
+
+          <section id="button" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Button">
+            <rc-heading level="2">Button</rc-heading>
+            <rc-text variant="muted">
+              Hard-shadow retro button. Renders a native <code>&lt;button&gt;</code> — or a native
+              <code>&lt;a&gt;</code> when <code>href</code> is set, so “view role” links keep link
+              semantics and keyboard behavior.
+            </rc-text>
+            <rc-card>
+              <span slot="titlebar">live demo</span>
+              <div class="flex flex-wrap gap-[var(--rc-space-sm)]">
+                <rc-button type="button">default</rc-button>
+                <rc-button type="button" variant="primary">primary</rc-button>
+                <rc-button type="button" size="sm">small</rc-button>
+                <rc-button type="button" variant="primary" size="sm" href="#button">link as button</rc-button>
+                <rc-button type="button" disabled>disabled</rc-button>
+              </div>
+            </rc-card>
+            <pre class="docs-code"><code>&lt;rc-button type="button"&gt;reset all&lt;/rc-button&gt;
+&lt;rc-button type="button" variant="primary" href="/roles/1"&gt;view role&lt;/rc-button&gt;</code></pre>
+            <table class="props-table">
+              <caption class="sr-only">Button props</caption>
+              <thead>
+                <tr><th scope="col">Prop</th><th scope="col">Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>variant</code></td><td>default, primary</td></tr>
+                <tr><td><code>size</code></td><td>md, sm</td></tr>
+                <tr><td><code>href</code></td><td>renders an anchor when set</td></tr>
+                <tr><td><code>type</code></td><td>button, submit, reset</td></tr>
+                <tr><td><code>disabled</code></td><td>boolean attribute</td></tr>
+              </tbody>
+            </table>
+            <rc-text variant="small">A11y: full keyboard support, visible press-down state, thick focus ring, disabled uses native semantics.</rc-text>
+          </section>
+
+          <section id="pill" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Pill">
+            <rc-heading level="2">Pill</rc-heading>
+            <rc-text variant="muted">
+              Status and metadata tags, mirroring the job board’s source, work-mode, and hidden
+              tags. Non-interactive by default — pair with text, don’t use color alone to convey meaning.
+            </rc-text>
+            <rc-card>
+              <span slot="titlebar">live demo</span>
+              <div class="flex flex-wrap gap-[var(--rc-space-sm)]">
+                <rc-pill>default</rc-pill>
+                <rc-pill tone="sun">publicjobs</rc-pill>
+                <rc-pill tone="mint">remote</rc-pill>
+                <rc-pill tone="peach">hybrid</rc-pill>
+                <rc-pill tone="lavender">on site</rc-pill>
+                <rc-pill tone="pink">new</rc-pill>
+                <rc-pill tone="cherry">hidden</rc-pill>
+              </div>
+            </rc-card>
+            <pre class="docs-code"><code>&lt;rc-pill tone="sun"&gt;publicjobs&lt;/rc-pill&gt;
+&lt;rc-pill tone="mint"&gt;remote&lt;/rc-pill&gt;
+&lt;rc-pill tone="cherry"&gt;hidden&lt;/rc-pill&gt;</code></pre>
+            <table class="props-table">
+              <caption class="sr-only">Pill props</caption>
+              <thead>
+                <tr><th scope="col">Prop</th><th scope="col">Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>tone</code></td><td>default, sun, mint, peach, lavender, pink, cherry</td></tr>
+              </tbody>
+            </table>
+            <rc-text variant="small">A11y: plain spans with AA text contrast in both themes; statuses are always labeled in words, not color.</rc-text>
+          </section>
+
+          <section id="dropdown" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Dropdown">
+            <rc-heading level="2">Dropdown</rc-heading>
+            <rc-text variant="muted">
+              A styling wrapper around your native <code>&lt;label&gt;</code> +
+              <code>&lt;select&gt;</code>, kept in the light DOM so screen readers, keyboard
+              users, and forms get 100% platform behavior. Only the retro visuals are added.
+            </rc-text>
+            <rc-card>
+              <span slot="titlebar">live demo</span>
+              <div class="grid gap-[var(--rc-space-md)] sm:grid-cols-2">
+                <rc-dropdown>
+                  <label for="demo-source">Source</label>
+                  <select id="demo-source">
+                    <option value="all">Publicjobs and Activelink</option>
+                    <option value="publicjobs">Publicjobs only</option>
+                    <option value="activelink">Activelink only</option>
+                  </select>
+                </rc-dropdown>
+                <rc-dropdown hint="Minimum is above maximum — no roles can match this range.">
+                  <label for="demo-mode">Work mode</label>
+                  <select id="demo-mode">
+                    <option value="all">Any</option>
+                    <option value="remote">Remote</option>
+                    <option value="hybrid">Hybrid</option>
+                    <option value="onsite">On site</option>
+                  </select>
+                </rc-dropdown>
+              </div>
+            </rc-card>
+            <pre class="docs-code"><code>&lt;rc-dropdown&gt;
+  &lt;label for="source"&gt;Source&lt;/label&gt;
+  &lt;select id="source"&gt;
+    &lt;option value="all"&gt;Publicjobs and Activelink&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/rc-dropdown&gt;</code></pre>
+            <table class="props-table">
+              <caption class="sr-only">Dropdown props</caption>
+              <thead>
+                <tr><th scope="col">Prop</th><th scope="col">Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>hint</code></td><td>optional muted hint line below the select</td></tr>
+              </tbody>
+            </table>
+            <rc-text variant="small">A11y: native select semantics — arrow keys, type-ahead, labelled by a real label, focus ring, full form participation.</rc-text>
+          </section>
+
+          <section id="card" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Card">
+            <rc-heading level="2">Card</rc-heading>
+            <rc-text variant="muted">
+              The generic retro window: bordered card, offset shadow, optional titlebar. Body
+              content is projected, so your headings and links keep native semantics. Titlebar
+              tones reuse the same backgrounds as the job board’s card variants.
+            </rc-text>
+            <div class="grid gap-[var(--rc-space-md)] sm:grid-cols-2">
+              <rc-card tone="peach">
+                <span slot="titlebar">peach · standard listing</span>
+                <rc-heading level="3">Support worker</rc-heading>
+                <rc-text variant="small">Dublin South · full time</rc-text>
+              </rc-card>
+              <rc-card tone="mint">
+                <span slot="titlebar">mint · remote listing</span>
+                <rc-heading level="3">Helpline volunteer</rc-heading>
+                <rc-text variant="small">Remote · evenings</rc-text>
+              </rc-card>
+            </div>
+            <pre class="docs-code"><code>&lt;rc-card tone="peach"&gt;
+  &lt;span slot="titlebar"&gt;activelink · hybrid&lt;/span&gt;
+  &lt;rc-heading level="3"&gt;Support worker&lt;/rc-heading&gt;
+&lt;/rc-card&gt;</code></pre>
+            <table class="props-table">
+              <caption class="sr-only">Card props</caption>
+              <thead>
+                <tr><th scope="col">Prop</th><th scope="col">Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>tone</code></td><td>default, pink, sun, peach, mint</td></tr>
+                <tr><td><code>noTitlebar</code></td><td>boolean — body-only card</td></tr>
+              </tbody>
+            </table>
+            <rc-text variant="small">A11y: the titlebar is decorative chrome; put exactly one real heading per card body.</rc-text>
+          </section>
+
+          <section id="header-card" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Header card">
+            <rc-heading level="2">Header card</rc-heading>
+            <rc-text variant="muted">
+              The hero organism — the “vlvagerviwager’s jobs board” panel. Mac-style dots are
+              decorative and hidden from assistive tech; the actions slot hosts controls like the
+              theme toggle.
+            </rc-text>
+            <rc-header-card eyebrow="vlvagerviwager's jobs board">
+              <rc-button size="sm" slot="actions" data-theme-toggle type="button">dark mode</rc-button>
+              <h1>in the future, i have gotten my dream job</h1>
+              <p>Newest roles from Publicjobs and Activelink, in one place.</p>
+              <p><rc-pill tone="sun">fresh as of today</rc-pill></p>
+            </rc-header-card>
+            <pre class="docs-code"><code>&lt;rc-header-card eyebrow="vlvagerviwager's jobs board"&gt;
+  &lt;rc-button size="sm" slot="actions" data-theme-toggle&gt;dark mode&lt;/rc-button&gt;
+  &lt;h1&gt;in the future, i have gotten my dream job&lt;/h1&gt;
+&lt;/rc-header-card&gt;</code></pre>
+            <table class="props-table">
+              <caption class="sr-only">Header card props</caption>
+              <thead>
+                <tr><th scope="col">Prop / slot</th><th scope="col">Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>eyebrow</code></td><td>titlebar label text</td></tr>
+                <tr><td><code>slot="actions"</code></td><td>titlebar controls (theme toggle, reset)</td></tr>
+                <tr><td>default slot</code></td><td>headline, subtitle, meta pill</td></tr>
+              </tbody>
+            </table>
+            <rc-text variant="small">A11y: renders a native header landmark; keep a single h1 per page inside it.</rc-text>
+          </section>
+
+          <section id="theming" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Theming">
+            <rc-heading level="2">Theming</rc-heading>
+            <rc-text variant="muted">
+              Themes are a <code>data-theme</code> attribute on <code>&lt;html&gt;</code>. Components
+              read <code>var(--rc-*)</code>, so they follow automatically. The toggle persists to
+              localStorage and falls back to your OS setting.
+            </rc-text>
+            <pre class="docs-code"><code>import { applyTheme, getInitialTheme } from "./theme";
+
+applyTheme(getInitialTheme()); // "light" | "dark"
+// any [data-theme-toggle] button flips and persists it</code></pre>
+          </section>
+
+          <section id="accessibility" class="docs-section flex flex-col gap-[var(--rc-space-md)]" aria-label="Accessibility">
+            <rc-heading level="2">Accessibility</rc-heading>
+            <rc-text variant="muted">
+              The system targets WCAG 2.2 AA: text pairs hold at least 4.5:1, focus indicators
+              at least 3:1, and interactions stay keyboard-operable.
+            </rc-text>
+            <rc-card tone="mint">
+              <span slot="titlebar">what is covered</span>
+              <ul class="docs-list">
+                <li>Native elements under every component (button, select, headings, links)</li>
+                <li>Visible thick focus ring on all interactive elements</li>
+                <li>Skip link, landmarks, labelled sections and nav</li>
+                <li>Decorative dots and grid hidden with aria-hidden</li>
+                <li>Status conveyed in words, never color alone</li>
+                <li>Reduced-motion support and forced-colors adjustments</li>
+              </ul>
+            </rc-card>
+          </section>
+
+          <footer class="border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-peach-soft)] p-[var(--rc-space-lg)]" aria-label="Footer">
+            <rc-text variant="muted">Ported from the aesthetic job board. Deployed to GitHub Pages from main.</rc-text>
+            <p>
+              <rc-link href="../">Back home</rc-link>
+              ·
+              <rc-link href="https://github.com/vlvagerviwager/retro-cute-design-system">GitHub</rc-link>
+            </p>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="../src/docs.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/*
+ * Retro-cute design tokens.
+ * Canonical source for every color, space, radius, shadow, and type value.
+ * Components and pages MUST reference var(--rc-*) or Tailwind utilities
+ * mapped below — never raw hex / px literals.
+ */
+
+:root {
+  --rc-color-grid-bg: #8f9fe6;
+  --rc-color-grid-line: rgba(255, 255, 255, 0.65);
+  --rc-color-ink: #232a3d;
+  --rc-color-muted: #5f5486;
+  --rc-color-card: #fffaf2;
+  --rc-color-pink: #f7a8c6;
+  --rc-color-pink-pale: #f9b1cd;
+  --rc-color-peach: #ffcf9f;
+  --rc-color-peach-soft: #ffe9d6;
+  --rc-color-cream: #ffffff;
+  --rc-color-yellow: #ffcf4d;
+  --rc-color-yellow-soft: #fff3c4;
+  --rc-color-mint: #bfe8b0;
+  --rc-color-lavender: #d7ddff;
+  --rc-color-red: #c62f45;
+  --rc-color-navy: #232a5a;
+  --rc-color-border: #232a3d;
+  --rc-color-link: #232a5a;
+  --rc-color-focus: #232a5a;
+
+  --rc-space-xs: 6px;
+  --rc-space-sm: 10px;
+  --rc-space-md: 16px;
+  --rc-space-lg: 24px;
+  --rc-space-xl: 36px;
+
+  --rc-radius-card: 14px;
+  --rc-radius-control: 10px;
+  --rc-radius-pill: 999px;
+
+  --rc-border-width: 2px;
+  --rc-border-width-focus: 3px;
+  --rc-size-dot: 12px;
+  --rc-grid-line-width: 1px;
+  --rc-page-max-width: 1280px;
+  --rc-docs-nav-width: 264px;
+  --rc-swatch-min-width: 140px;
+  --rc-shadow-offset: 5px;
+  --rc-shadow-offset-sm: 3px;
+  --rc-grid-cell: 28px;
+
+  --rc-font-body: "Avenir Next", "Trebuchet MS", Verdana, sans-serif;
+  --rc-font-display: "Cooper Black", "Avenir Next", "Trebuchet MS", sans-serif;
+
+  --rc-weight-heading: 600;
+  --rc-weight-label: 500;
+  --rc-weight-button: 600;
+  --rc-weight-tag: 600;
+
+  --rc-font-size-xs: 0.78rem;
+  --rc-font-size-sm: 0.85rem;
+  --rc-font-size-body: 1rem;
+  --rc-font-size-h3: 1.15rem;
+  --rc-font-size-h2: 1.75rem;
+  --rc-font-size-h1: 2.1rem;
+
+  --rc-line-height-tight: 1.2;
+  --rc-line-height-snug: 1.4;
+  --rc-line-height-body: 1.55;
+
+  --rc-letter-spacing-tight: 0.01em;
+  --rc-letter-spacing-wide: 0.02em;
+}
+
+[data-theme="dark"] {
+  --rc-color-grid-bg: #141022;
+  --rc-color-grid-line: rgba(249, 177, 205, 0.16);
+  --rc-color-ink: #f9eef6;
+  --rc-color-muted: #d3c6e8;
+  --rc-color-card: #3e365c;
+  --rc-color-pink: #ff8fa0;
+  --rc-color-pink-pale: #5c2340;
+  --rc-color-peach: #5c3a2a;
+  --rc-color-peach-soft: #443055;
+  --rc-color-cream: #241f36;
+  --rc-color-yellow: #ffd74d;
+  --rc-color-yellow-soft: #4a3d18;
+  --rc-color-mint: #3d4a2e;
+  --rc-color-lavender: #5a4416;
+  --rc-color-red: #ff8fa0;
+  --rc-color-navy: #ffd74d;
+  --rc-color-border: #f9eef6;
+  --rc-color-link: #ffe9a8;
+  --rc-color-focus: #ffd74d;
+}
+
+/* Tailwind v4 theme bindings. Colors are `inline` so utilities resolve to
+ * the live CSS variables above and follow light/dark switching. Spacing,
+ * radius, and fonts are static scales shared by both themes. */
+@theme inline {
+  --color-gridbg: var(--rc-color-grid-bg);
+  --color-ink: var(--rc-color-ink);
+  --color-muted: var(--rc-color-muted);
+  --color-card: var(--rc-color-card);
+  --color-pink: var(--rc-color-pink);
+  --color-pinkpale: var(--rc-color-pink-pale);
+  --color-peach: var(--rc-color-peach);
+  --color-peachsoft: var(--rc-color-peach-soft);
+  --color-cream: var(--rc-color-cream);
+  --color-sun: var(--rc-color-yellow);
+  --color-sunsoft: var(--rc-color-yellow-soft);
+  --color-mint: var(--rc-color-mint);
+  --color-lavender: var(--rc-color-lavender);
+  --color-cherry: var(--rc-color-red);
+  --color-navy: var(--rc-color-navy);
+  --color-line: var(--rc-color-border);
+  --color-link: var(--rc-color-link);
+  --color-focus: var(--rc-color-focus);
+}
+
+@theme {
+  --spacing-xs: var(--rc-space-xs);
+  --spacing-sm: var(--rc-space-sm);
+  --spacing-md: var(--rc-space-md);
+  --spacing-lg: var(--rc-space-lg);
+  --spacing-xl: var(--rc-space-xl);
+
+  --radius-card: var(--rc-radius-card);
+  --radius-control: var(--rc-radius-control);
+  --radius-pill: var(--rc-radius-pill);
+
+  --font-body: var(--rc-font-body);
+  --font-display: var(--rc-font-display);
+}
+
+/* Base page rules: consume tokens only. */
+html {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--rc-font-body);
+  color: var(--rc-color-ink);
+  background: var(--rc-color-grid-bg);
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--rc-color-yellow);
+  color: var(--rc-color-ink);
+}
+
+:focus-visible {
+  outline: var(--rc-border-width-focus) solid var(--rc-color-focus);
+  outline-offset: var(--rc-border-width);
+}
+
+.page-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--rc-color-grid-line) var(--rc-grid-line-width), transparent var(--rc-grid-line-width)),
+    linear-gradient(90deg, var(--rc-color-grid-line) var(--rc-grid-line-width), transparent var(--rc-grid-line-width));
+  background-size: var(--rc-grid-cell) var(--rc-grid-cell);
+  pointer-events: none;
+}
+
+.page-shell {
+  position: relative;
+  max-width: var(--rc-page-max-width);
+  margin: 0 auto;
+  padding: var(--rc-space-lg) var(--rc-space-md) var(--rc-space-xl);
+}
+
+.docs-section {
+  scroll-margin-top: var(--rc-space-xl);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--rc-space-md);
+  top: var(--rc-space-md);
+  transform: translateY(-400%);
+  background: var(--rc-color-card);
+  color: var(--rc-color-ink);
+  border: var(--rc-border-width) solid var(--rc-color-border);
+  border-radius: var(--rc-radius-control);
+  padding: var(--rc-space-sm) var(--rc-space-md);
+  font-weight: var(--rc-weight-button);
+  z-index: 1;
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

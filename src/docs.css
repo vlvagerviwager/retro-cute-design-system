@@ -1,0 +1,114 @@
+/* Docs-page light-DOM styles. Token references only. */
+
+.docs-code {
+  background: var(--rc-color-cream);
+  border: var(--rc-border-width) solid var(--rc-color-border);
+  border-radius: var(--rc-radius-control);
+  padding: var(--rc-space-md);
+  overflow-x: auto;
+  font-size: var(--rc-font-size-sm);
+  line-height: var(--rc-line-height-body);
+  color: var(--rc-color-ink);
+}
+
+.docs-code code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--rc-font-size-sm);
+}
+
+.props-table th,
+.props-table td {
+  text-align: left;
+  padding: var(--rc-space-sm) var(--rc-space-md);
+  border-bottom: var(--rc-border-width) dashed var(--rc-color-border);
+  vertical-align: top;
+}
+
+.props-table th {
+  font-weight: var(--rc-weight-button);
+}
+
+.props-table code {
+  background: var(--rc-color-lavender);
+  border-radius: var(--rc-radius-control);
+  padding: var(--rc-space-xs) var(--rc-space-sm);
+}
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--rc-swatch-min-width), 1fr));
+  gap: var(--rc-space-md);
+}
+
+.swatch-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rc-space-xs);
+  background: var(--rc-color-cream);
+  border: var(--rc-border-width) solid var(--rc-color-border);
+  border-radius: var(--rc-radius-control);
+  padding: var(--rc-space-sm);
+}
+
+.swatch-chip {
+  display: block;
+  width: 100%;
+  height: var(--rc-space-xl);
+  border: var(--rc-border-width) solid var(--rc-color-border);
+  border-radius: var(--rc-radius-control);
+}
+
+.swatch-label {
+  font-weight: var(--rc-weight-button);
+  font-size: var(--rc-font-size-sm);
+}
+
+.swatch-value {
+  font-size: var(--rc-font-size-sm);
+  color: var(--rc-color-muted);
+}
+
+.docs-nav {
+  display: flex;
+  gap: var(--rc-space-sm);
+  overflow-x: auto;
+  padding-bottom: var(--rc-space-sm);
+}
+
+.docs-nav-link {
+  display: block;
+  padding: var(--rc-space-xs) var(--rc-space-md);
+  border-radius: var(--rc-radius-pill);
+  border: var(--rc-border-width) solid transparent;
+  color: var(--rc-color-muted);
+  font-size: var(--rc-font-size-sm);
+  font-weight: var(--rc-weight-label);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.docs-nav-link:hover {
+  color: var(--rc-color-ink);
+  border-color: var(--rc-color-border);
+}
+
+.docs-nav-link-active {
+  background: var(--rc-color-pink);
+  border-color: var(--rc-color-border);
+  color: var(--rc-color-ink);
+  font-weight: var(--rc-weight-button);
+}
+
+.docs-list {
+  margin: 0;
+  padding-left: var(--rc-space-lg);
+  line-height: var(--rc-line-height-body);
+  display: flex;
+  flex-direction: column;
+  gap: var(--rc-space-xs);
+}

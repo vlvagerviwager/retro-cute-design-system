@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>retro-cute design system — pastel Lit components with light and dark mode</title>
+    <meta
+      name="description"
+      content="A tiny atomic design system ported from the aesthetic job board: header card, card, dropdown, button, pill, and typography as Lit Web Components with light and dark themes."
+    />
+    <meta name="theme-color" content="#8f9fe6" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./src/tokens.css" />
+    <script>
+      try {
+        var savedTheme = localStorage.getItem("retro-cute-design-system:theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (error) {
+        /* private mode or old browser: fall back to light theme */
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="relative border-b-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-card)]">
+      <div
+        class="mx-auto flex w-full max-w-[var(--rc-page-max-width)] flex-wrap items-center gap-[var(--rc-space-md)] px-[var(--rc-space-md)] py-[var(--rc-space-sm)]"
+      >
+        <a
+          href="./"
+          class="flex items-center gap-[var(--rc-space-sm)] font-bold text-[var(--rc-color-ink)] no-underline"
+          aria-label="retro-cute design system home"
+        >
+          <span class="inline-flex gap-[var(--rc-space-xs)]" aria-hidden="true">
+            <span class="inline-block h-[var(--rc-size-dot)] w-[var(--rc-size-dot)] rounded-full border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-red)]"></span>
+            <span class="inline-block h-[var(--rc-size-dot)] w-[var(--rc-size-dot)] rounded-full border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-yellow)]"></span>
+            <span class="inline-block h-[var(--rc-size-dot)] w-[var(--rc-size-dot)] rounded-full border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-navy)]"></span>
+          </span>
+          retro-cute
+        </a>
+        <nav class="flex flex-wrap items-center gap-[var(--rc-space-sm)]" aria-label="Site">
+          <rc-link href="./components/">Components</rc-link>
+          <rc-link href="https://github.com/vlvagerviwager/retro-cute-design-system">GitHub</rc-link>
+        </nav>
+        <div class="ml-auto flex items-center gap-[var(--rc-space-sm)]">
+          <rc-button size="sm" data-theme-toggle type="button">dark mode</rc-button>
+          <rc-button size="sm" variant="primary" href="./components/">Get started</rc-button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="page-shell flex flex-col gap-[var(--rc-space-xl)]">
+      <section class="mx-auto flex w-full max-w-[var(--rc-page-max-width)] flex-col items-center gap-[var(--rc-space-md)] py-[var(--rc-space-xl)] text-center" aria-label="Introduction">
+        <rc-pill tone="sun">v0.1.0 · Lit + Tailwind · light and dark mode</rc-pill>
+        <div class="max-w-[var(--rc-page-max-width)]">
+          <rc-heading level="1">Pastel retro components for cute, calm interfaces</rc-heading>
+        </div>
+        <rc-text variant="muted">
+          An atomic design system lifted straight from the aesthetic job board — header card, card,
+          dropdown, button, pill, and typography — rebuilt as typed Lit Web Components on named
+          design tokens. No magic numbers, WCAG AA contrast, keyboard-first.
+        </rc-text>
+        <div class="flex flex-wrap justify-center gap-[var(--rc-space-sm)]">
+          <rc-button variant="primary" href="./components/">Browse components</rc-button>
+          <rc-button href="https://github.com/vlvagerviwager/retro-cute-design-system">View on GitHub</rc-button>
+        </div>
+        <pre class="docs-code w-full max-w-[var(--rc-page-max-width)] text-left"><code>bun add retro-cute-design-system
+import "retro-cute-design-system/components";
+&lt;rc-button variant="primary"&gt;view role&lt;/rc-button&gt;</code></pre>
+      </section>
+
+      <section aria-label="Live preview">
+        <rc-heading level="2" id="preview-title">Made of the same pieces</rc-heading>
+        <rc-text variant="muted">
+          Everything below is a live component — flip the theme toggle in the header to see both
+          modes. This panel mirrors the job board hero it was ported from.
+        </rc-text>
+        <div class="grid gap-[var(--rc-space-lg)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          <rc-header-card eyebrow="vlvagerviwager's jobs board">
+            <rc-button size="sm" slot="actions" data-theme-toggle type="button">dark mode</rc-button>
+            <h1>in the future, i have gotten my dream job</h1>
+            <p>Newest roles from Publicjobs and Activelink, in one place.</p>
+            <p><rc-pill tone="sun">fresh as of today · 128 roles</rc-pill></p>
+          </rc-header-card>
+          <rc-card tone="peach">
+            <span slot="titlebar">activelink posted this week · hybrid</span>
+            <rc-heading level="3">Support worker, Dublin South</rc-heading>
+            <p>
+              <rc-pill tone="mint">activelink</rc-pill>
+              <rc-pill tone="peach">hybrid</rc-pill>
+              <rc-pill tone="lavender">full time</rc-pill>
+            </p>
+            <rc-text>Location: Dublin South. Salary band shown on the full listing.</rc-text>
+            <p>
+              <rc-button variant="primary" size="sm" href="./components/">view role</rc-button>
+              <rc-button size="sm" type="button">hide</rc-button>
+            </p>
+          </rc-card>
+        </div>
+      </section>
+
+      <section aria-label="Why this system">
+        <rc-heading level="2" id="features-title">Why this system</rc-heading>
+        <div class="grid gap-[var(--rc-space-md)] sm:grid-cols-2 lg:grid-cols-3">
+          <rc-card tone="pink">
+            <span slot="titlebar">atomic by design</span>
+            <rc-text>Atoms, molecules, and organisms with one job each — composed, never copy-pasted.</rc-text>
+          </rc-card>
+          <rc-card tone="sun">
+            <span slot="titlebar">light + dark</span>
+            <rc-text>Every component reads theme tokens, follows your OS setting, and remembers your toggle.</rc-text>
+          </rc-card>
+          <rc-card tone="mint">
+            <span slot="titlebar">accessible</span>
+            <rc-text>Native buttons, selects, and headings under the hood — AA contrast, visible focus, reduced motion.</rc-text>
+          </rc-card>
+          <rc-card tone="peach">
+            <span slot="titlebar">typed</span>
+            <rc-text>Built with TypeScript and Lit, so variants and props are checked, not guessed.</rc-text>
+          </rc-card>
+          <rc-card tone="pink">
+            <span slot="titlebar">no magic values</span>
+            <rc-text>Every color, space, and radius comes from a named token. CI fails raw hex or pixel literals.</rc-text>
+          </rc-card>
+          <rc-card tone="sun">
+            <span slot="titlebar">static-first</span>
+            <rc-text>Two static pages that deploy to GitHub Pages straight from a Bun + Vite build.</rc-text>
+          </rc-card>
+        </div>
+      </section>
+
+      <section aria-label="Getting started">
+        <rc-heading level="2" id="start-title">Get going in three steps</rc-heading>
+        <div class="grid gap-[var(--rc-space-md)] lg:grid-cols-3">
+          <rc-card>
+            <span slot="titlebar">1 · install</span>
+            <pre class="docs-code"><code>bun add retro-cute-design-system</code></pre>
+          </rc-card>
+          <rc-card>
+            <span slot="titlebar">2 · tokens</span>
+            <pre class="docs-code"><code>import "retro-cute-design-system/tokens.css";</code></pre>
+          </rc-card>
+          <rc-card>
+            <span slot="titlebar">3 · components</span>
+            <pre class="docs-code"><code>import "retro-cute-design-system/components";</code></pre>
+          </rc-card>
+        </div>
+      </section>
+
+      <footer class="border-[var(--rc-border-width)] border-[var(--rc-color-border)] bg-[var(--rc-color-peach-soft)] p-[var(--rc-space-lg)] text-[var(--rc-color-muted)]" aria-label="Footer">
+        <rc-text variant="muted">
+          Built with Bun, Lit, Tailwind, and TypeScript. Ported from the aesthetic job board.
+        </rc-text>
+        <p>
+          <rc-link href="./components/">Component docs</rc-link>
+          ·
+          <rc-link href="https://github.com/vlvagerviwager/retro-cute-design-system">GitHub</rc-link>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/landing.ts"></script>
+  </body>
+</html>
