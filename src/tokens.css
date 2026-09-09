@@ -4,7 +4,7 @@
  * Retro-cute design tokens.
  * Canonical source for every color, space, radius, shadow, and type value.
  * Components and pages MUST reference var(--rc-*) or Tailwind utilities
- * mapped below — never raw hex / px literals.
+ * mapped below. Never use raw hex or px literals.
  */
 
 :root {
@@ -27,6 +27,7 @@
   --rc-color-border: #232a3d;
   --rc-color-link: #232a5a;
   --rc-color-focus: #232a5a;
+  --rc-color-bright-ink: #232a3d;
 
   --rc-space-xs: 6px;
   --rc-space-sm: 10px;
@@ -78,7 +79,7 @@
   --rc-color-ink: #f9eef6;
   --rc-color-muted: #d3c6e8;
   --rc-color-card: #3e365c;
-  --rc-color-pink: #ff8fa0;
+  --rc-color-pink: #a83a63;
   --rc-color-pink-pale: #5c2340;
   --rc-color-peach: #5c3a2a;
   --rc-color-peach-soft: #443055;
@@ -92,6 +93,7 @@
   --rc-color-border: #f9eef6;
   --rc-color-link: #ffe9a8;
   --rc-color-focus: #ffd74d;
+  --rc-color-bright-ink: #232a3d;
 }
 
 /* Tailwind v4 theme bindings. Colors are `inline` so utilities resolve to
@@ -116,6 +118,7 @@
   --color-line: var(--rc-color-border);
   --color-link: var(--rc-color-link);
   --color-focus: var(--rc-color-focus);
+  --color-brightink: var(--rc-color-bright-ink);
 }
 
 @theme {
@@ -152,7 +155,7 @@ body {
 
 ::selection {
   background: var(--rc-color-yellow);
-  color: var(--rc-color-ink);
+  color: var(--rc-color-bright-ink);
 }
 
 :focus-visible {
@@ -175,6 +178,20 @@ body {
   max-width: var(--rc-page-max-width);
   margin: 0 auto;
   padding: var(--rc-space-lg) var(--rc-space-md) var(--rc-space-xl);
+}
+
+/* Solid content surface. Body copy must always sit on a panel, card, or
+ * other token surface, never directly on the grid backdrop. */
+.panel {
+  background: var(--rc-color-card);
+  border: var(--rc-border-width) solid var(--rc-color-border);
+  border-radius: var(--rc-radius-card);
+  box-shadow: var(--rc-shadow-offset) var(--rc-shadow-offset) 0 var(--rc-color-border);
+  padding: var(--rc-space-lg);
+}
+
+.panel > :last-child {
+  margin-bottom: 0;
 }
 
 .docs-section {

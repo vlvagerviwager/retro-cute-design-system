@@ -35,6 +35,7 @@ export class RcPill extends LitElement {
     }
     .pill-tone-sun {
       background: var(--rc-color-yellow);
+      color: var(--rc-color-bright-ink);
     }
     .pill-tone-mint {
       background: var(--rc-color-mint);

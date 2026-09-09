@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>retro-cute design system — pastel Lit components with light and dark mode</title>
+    <title>retro-cute design system: pastel Lit components with light and dark mode</title>
     <meta
       name="description"
       content="A tiny atomic design system ported from the aesthetic job board: header card, card, dropdown, button, pill, and typography as Lit Web Components with light and dark themes."
@@ -56,14 +56,15 @@
     </header>
 
     <main id="main" class="page-shell flex flex-col gap-[var(--rc-space-xl)]">
-      <section class="mx-auto flex w-full max-w-[var(--rc-page-max-width)] flex-col items-center gap-[var(--rc-space-md)] py-[var(--rc-space-xl)] text-center" aria-label="Introduction">
+      <section class="mx-auto w-full max-w-[var(--rc-page-max-width)] py-[var(--rc-space-xl)]" aria-label="Introduction">
+        <div class="panel flex flex-col items-center gap-[var(--rc-space-md)] text-center">
         <rc-pill tone="sun">v0.1.0 · Lit + Tailwind · light and dark mode</rc-pill>
         <div class="max-w-[var(--rc-page-max-width)]">
           <rc-heading level="1">Pastel retro components for cute, calm interfaces</rc-heading>
         </div>
         <rc-text variant="muted">
-          An atomic design system lifted straight from the aesthetic job board — header card, card,
-          dropdown, button, pill, and typography — rebuilt as typed Lit Web Components on named
+          An atomic design system lifted straight from the aesthetic job board (header card, card,
+          dropdown, button, pill, and typography), rebuilt as typed Lit Web Components on named
           design tokens. No magic numbers, WCAG AA contrast, keyboard-first.
         </rc-text>
         <div class="flex flex-wrap justify-center gap-[var(--rc-space-sm)]">
@@ -73,14 +74,17 @@
         <pre class="docs-code w-full max-w-[var(--rc-page-max-width)] text-left"><code>bun add retro-cute-design-system
 import "retro-cute-design-system/components";
 &lt;rc-button variant="primary"&gt;view role&lt;/rc-button&gt;</code></pre>
+        </div>
       </section>
 
-      <section aria-label="Live preview">
+      <section class="flex flex-col gap-[var(--rc-space-md)]" aria-label="Live preview">
+        <div class="panel">
         <rc-heading level="2" id="preview-title">Made of the same pieces</rc-heading>
         <rc-text variant="muted">
-          Everything below is a live component — flip the theme toggle in the header to see both
+          Everything below is a live component. Flip the theme toggle in the header to see both
           modes. This panel mirrors the job board hero it was ported from.
         </rc-text>
+        </div>
         <div class="grid gap-[var(--rc-space-lg)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <rc-header-card eyebrow="vlvagerviwager's jobs board">
             <rc-button size="sm" slot="actions" data-theme-toggle type="button">dark mode</rc-button>
@@ -105,12 +109,17 @@ import "retro-cute-design-system/components";
         </div>
       </section>
 
-      <section aria-label="Why this system">
+      <section class="flex flex-col gap-[var(--rc-space-md)]" aria-label="Why this system">
+        <div class="panel">
         <rc-heading level="2" id="features-title">Why this system</rc-heading>
+        <rc-text variant="muted">
+          Six small pieces, one shared token foundation, zero magic values.
+        </rc-text>
+        </div>
         <div class="grid gap-[var(--rc-space-md)] sm:grid-cols-2 lg:grid-cols-3">
           <rc-card tone="pink">
             <span slot="titlebar">atomic by design</span>
-            <rc-text>Atoms, molecules, and organisms with one job each — composed, never copy-pasted.</rc-text>
+            <rc-text>Atoms, molecules, and organisms with one job each. Compose them, never copy-paste.</rc-text>
           </rc-card>
           <rc-card tone="sun">
             <span slot="titlebar">light + dark</span>
@@ -118,7 +127,7 @@ import "retro-cute-design-system/components";
           </rc-card>
           <rc-card tone="mint">
             <span slot="titlebar">accessible</span>
-            <rc-text>Native buttons, selects, and headings under the hood — AA contrast, visible focus, reduced motion.</rc-text>
+            <rc-text>Native buttons, selects, and headings under the hood, with AA contrast, visible focus, reduced motion.</rc-text>
           </rc-card>
           <rc-card tone="peach">
             <span slot="titlebar">typed</span>
@@ -135,8 +144,13 @@ import "retro-cute-design-system/components";
         </div>
       </section>
 
-      <section aria-label="Getting started">
+      <section class="flex flex-col gap-[var(--rc-space-md)]" aria-label="Getting started">
+        <div class="panel">
         <rc-heading level="2" id="start-title">Get going in three steps</rc-heading>
+        <rc-text variant="muted">
+          Install the package, include the tokens, register the components.
+        </rc-text>
+        </div>
         <div class="grid gap-[var(--rc-space-md)] lg:grid-cols-3">
           <rc-card>
             <span slot="titlebar">1 · install</span>

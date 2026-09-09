@@ -3,7 +3,7 @@
  * Asserts AA ratios for the text/background pairs the components actually
  * render: body text >= 4.5:1, UI chrome (borders, focus) >= 3:1.
  */
-import { DARK_PALETTE, LIGHT_PALETTE } from "../src/tokens";
+import { BRIGHT_INK_HEX, DARK_PALETTE, LIGHT_PALETTE } from "../src/tokens";
 
 const TEXT_MINIMUM_RATIO = 4.5;
 const CHROME_MINIMUM_RATIO = 3;
@@ -57,18 +57,23 @@ const contrastCases: ContrastCase[] = [
   { label: "light hidden tag", foreground: WHITE_HEX, background: light.red, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "light input", foreground: light.ink, background: light.cream, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "light peach titlebar", foreground: light.ink, background: light.peach, minimumRatio: TEXT_MINIMUM_RATIO },
+  { label: "light sun pill", foreground: BRIGHT_INK_HEX, background: light.yellow, minimumRatio: TEXT_MINIMUM_RATIO },
+  { label: "light footer", foreground: light.muted, background: light.peachSoft, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "light mint titlebar", foreground: light.ink, background: light.mint, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "light border chrome", foreground: light.border, background: light.card, minimumRatio: CHROME_MINIMUM_RATIO },
   { label: "dark body", foreground: dark.ink, background: dark.card, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark muted", foreground: dark.muted, background: dark.card, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark link", foreground: dark.link, background: dark.card, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark titlebar", foreground: dark.ink, background: dark.pinkPale, minimumRatio: TEXT_MINIMUM_RATIO },
+  { label: "dark pink titlebar", foreground: dark.ink, background: dark.pink, minimumRatio: TEXT_MINIMUM_RATIO },
+  { label: "dark sun titlebar", foreground: BRIGHT_INK_HEX, background: dark.yellow, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark meta pill", foreground: BLACK_HEX, background: dark.yellow, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark primary button", foreground: dark.cream, background: dark.navy, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark hidden tag", foreground: dark.cream, background: dark.red, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark peach titlebar", foreground: dark.ink, background: dark.peach, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark mint titlebar", foreground: dark.ink, background: dark.mint, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark lavender tag", foreground: dark.ink, background: dark.lavender, minimumRatio: TEXT_MINIMUM_RATIO },
+  { label: "dark footer", foreground: dark.muted, background: dark.peachSoft, minimumRatio: TEXT_MINIMUM_RATIO },
   { label: "dark border chrome", foreground: dark.border, background: dark.card, minimumRatio: CHROME_MINIMUM_RATIO },
 ];
 

@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 import { DEFAULT_HEADING_LEVEL, MAX_HEADING_LEVEL, MIN_HEADING_LEVEL } from "../../tokens";
 
 /**
- * Typographic atoms. Headings render the requested h1–h6 level so the
+ * Typographic atoms. Headings render the requested level from h1 to h6 so the
  * document outline stays meaningful; text and link are styled inline
  * elements matching the job-board treatments.
  */

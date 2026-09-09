@@ -2,13 +2,17 @@
  * Token mirrors for TypeScript.
  * Canonical values live in tokens.css; this module re-exports the same
  * scale under semantic names so component logic never uses magic literals.
- * Hex values here are for docs swatches and tests only — rendering must
- * use var(--rc-*) so light/dark themes apply.
+ * Hex values here are for docs swatches and tests only. Rendering must
+ * use var(--rc-*) so light and dark themes apply.
  */
 
 export const THEME_LIGHT = "light";
 export const THEME_DARK = "dark";
 export const THEME_STORAGE_KEY = "retro-cute-design-system:theme";
+
+/* Static dark ink for text on bright surfaces (yellow pills, sun titlebars)
+ * that stay light in both themes, where theme-flipping ink would fail. */
+export const BRIGHT_INK_HEX = "#232a3d";
 
 export const SPACE_XS_PX = 6;
 export const SPACE_SM_PX = 10;
@@ -68,6 +72,7 @@ export interface ThemePalette {
   border: string;
   link: string;
   focus: string;
+  brightInk: string;
 }
 
 export const LIGHT_PALETTE: ThemePalette = {
@@ -91,6 +96,7 @@ export const LIGHT_PALETTE: ThemePalette = {
   border: "#232a3d",
   link: "#232a5a",
   focus: "#232a5a",
+  brightInk: BRIGHT_INK_HEX,
 };
 
 export const DARK_PALETTE: ThemePalette = {
@@ -100,7 +106,7 @@ export const DARK_PALETTE: ThemePalette = {
   ink: "#f9eef6",
   muted: "#d3c6e8",
   card: "#3e365c",
-  pink: "#ff8fa0",
+  pink: "#a83a63",
   pinkPale: "#5c2340",
   peach: "#5c3a2a",
   peachSoft: "#443055",
@@ -114,4 +120,5 @@ export const DARK_PALETTE: ThemePalette = {
   border: "#f9eef6",
   link: "#ffe9a8",
   focus: "#ffd74d",
+  brightInk: BRIGHT_INK_HEX,
 };

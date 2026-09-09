@@ -40,6 +40,11 @@ export class RcCard extends LitElement {
     .titlebar-tone-sun {
       background: var(--rc-color-yellow);
     }
+    /* Sun titlebars stay bright in both themes, so slotted title text uses
+     * the static bright ink instead of the theme-flipping ink. */
+    .titlebar-tone-sun slot::slotted(*) {
+      color: var(--rc-color-bright-ink);
+    }
     .titlebar-tone-peach {
       background: var(--rc-color-peach);
     }

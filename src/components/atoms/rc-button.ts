@@ -37,7 +37,7 @@ export class RcButton extends LitElement {
     }
     .control-variant-primary {
       background: var(--rc-color-navy);
-      border-color: var(--rc-color-navy);
+      border-color: var(--rc-color-border);
       color: var(--rc-color-cream);
     }
     [data-theme="dark"] .control-variant-primary,

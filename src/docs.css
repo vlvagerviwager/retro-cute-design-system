@@ -84,7 +84,8 @@
   display: block;
   padding: var(--rc-space-xs) var(--rc-space-md);
   border-radius: var(--rc-radius-pill);
-  border: var(--rc-border-width) solid transparent;
+  border: var(--rc-border-width) solid var(--rc-color-border);
+  background: var(--rc-color-cream);
   color: var(--rc-color-muted);
   font-size: var(--rc-font-size-sm);
   font-weight: var(--rc-weight-label);

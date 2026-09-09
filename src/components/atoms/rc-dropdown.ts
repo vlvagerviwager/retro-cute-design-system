@@ -4,7 +4,7 @@ import { customElement, property } from "lit/decorators.js";
 /**
  * Accessible dropdown wrapper. The native <label> + <select> stay in the
  * light DOM (projected via slots) so keyboard behavior, screen-reader
- * announcements, and form participation remain platform-native — only
+ * announcements, and form participation remain platform-native. Only
  * the retro visual treatment is added via ::slotted selectors.
  *
  * Usage:
