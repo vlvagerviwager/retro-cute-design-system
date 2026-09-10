@@ -58,4 +58,4 @@ Push to `main`: `.github/workflows/deploy.yml` installs with Bun, runs the token
 
 ## Attribution
 
-No third-party assets. Components, tokens, and docs are original work ported from the author's own aesthetic job board; type stacks use system fonts only (Cooper Black with Avenir Next fallbacks).
+Licensed under PolyForm Noncommercial 1.0.0, see `LICENSE`. No third-party assets. Components, tokens, and docs are original work ported from the author's own aesthetic job board; type stacks use system fonts only (Cooper Black with Avenir Next fallbacks).

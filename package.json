@@ -4,6 +4,7 @@
   "type": "module",
   "version": "0.1.0",
   "description": "Retro-cute atomic design system (Lit Web Components + Tailwind tokens), docs as a static GitHub Pages site",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
