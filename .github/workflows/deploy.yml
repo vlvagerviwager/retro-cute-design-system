@@ -28,6 +28,9 @@ jobs:
       - run: bun run typecheck
       - run: bun test
       - run: bun run build
+      - run: python3 -m http.server 5321 --directory dist &>/tmp/pa11y-server.log & echo $! > /tmp/pa11y-server.pid
+      - run: bunx pa11y-ci --config .pa11yci.json
+      - run: kill $(cat /tmp/pa11y-server.pid)
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

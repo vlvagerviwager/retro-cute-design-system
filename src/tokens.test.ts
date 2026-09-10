@@ -9,6 +9,7 @@ import {
   LIGHT_PALETTE,
   MAX_HEADING_LEVEL,
   MIN_HEADING_LEVEL,
+  MIN_TOUCH_TARGET_PX,
   PAGE_MAX_WIDTH_PX,
   RADIUS_CARD_PX,
   RADIUS_CONTROL_PX,
@@ -57,6 +58,7 @@ describe("scales", () => {
       PAGE_MAX_WIDTH_PX,
       DOCS_NAV_WIDTH_PX,
       SWATCH_MIN_WIDTH_PX,
+      MIN_TOUCH_TARGET_PX,
       FONT_SIZE_H1_REM,
     ]) {
       expect(layoutValue).toBeGreaterThan(0);

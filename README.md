@@ -32,7 +32,7 @@ Six elements in `src/components/`: `rc-header-card` (organism) is the hero panel
 
 * Every color, space, radius, shadow, and type size comes from `src/tokens.css` (rendering) / `src/tokens.ts` (logic and docs). `bun run lint:tokens` fails raw hex or `px`/`rem` literals anywhere else.
 * All components support light and dark mode via `data-theme` on `<html>` (stored choice, then OS preference, then light fallback).
-* WCAG 2.2 AA: native elements under every component, 4.5:1 text contrast (`bun run check:contrast` verifies every pair), 3px focus rings, skip link and landmarks, decorative chrome hidden with `aria-hidden`, reduced-motion and forced-colors support.
+* WCAG 2.2 AA: native elements under every component, 4.5:1 text contrast (`bun run check:contrast` verifies every pair), 3px focus rings, 44px minimum touch targets, skip link and landmarks, decorative chrome hidden with `aria-hidden`, reduced-motion and forced-colors support.
 
 ## Deploy
 
@@ -47,6 +47,7 @@ Push to `main`: `.github/workflows/deploy.yml` installs with Bun, runs the token
 * `bun run typecheck`: run `tsc --noEmit`
 * `bun run lint:tokens`: fail on raw hex / pixel literals outside the token sources
 * `bun run check:contrast`: verify WCAG AA contrast ratios for every theme pair
+* `bunx pa11y-ci --config .pa11yci.json`: audit the built pages against WCAG2AA (serve `dist/` on port 5321 first, for example with `python3 -m http.server 5321 --directory dist`)
 
 ## Tech stack
 

@@ -31,6 +31,7 @@ export const GRID_LINE_WIDTH_PX = 1;
 export const PAGE_MAX_WIDTH_PX = 1280;
 export const DOCS_NAV_WIDTH_PX = 264;
 export const SWATCH_MIN_WIDTH_PX = 140;
+export const MIN_TOUCH_TARGET_PX = 44;
 export const SHADOW_OFFSET_PX = 5;
 export const SHADOW_OFFSET_SMALL_PX = 3;
 export const GRID_CELL_PX = 28;

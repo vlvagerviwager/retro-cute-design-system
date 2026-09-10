@@ -61,7 +61,8 @@ export class RcHeaderCard extends LitElement {
     .hero-body {
       padding: var(--rc-space-lg);
     }
-    ::slotted(h1) {
+    ::slotted(h1),
+    ::slotted(h2) {
       font-family: var(--rc-font-display);
       font-weight: var(--rc-weight-heading);
       font-size: var(--rc-font-size-h1);

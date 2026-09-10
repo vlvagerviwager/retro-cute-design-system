@@ -46,6 +46,7 @@
   --rc-page-max-width: 1280px;
   --rc-docs-nav-width: 264px;
   --rc-swatch-min-width: 140px;
+  --rc-min-target: 44px;
   --rc-shadow-offset: 5px;
   --rc-shadow-offset-sm: 3px;
   --rc-grid-cell: 28px;
@@ -192,6 +193,32 @@ body {
 
 .panel > :last-child {
   margin-bottom: 0;
+}
+
+/* Light-DOM hooks for card titlebar text. The component also styles this
+ * content inside its shadow tree, but audit tools resolve slotted text
+ * through light-DOM inheritance only and never cross the slot boundary when
+ * looking for backgrounds, so each tone's true surface must be asserted
+ * here too. Keep in sync with the titlebar tones in rc-card.ts. Sun
+ * titlebars stay bright in both themes, hence the static bright ink. */
+rc-card > [slot="titlebar"] {
+  background: var(--rc-color-pink);
+  color: var(--rc-color-ink);
+}
+
+rc-card[tone="sun"] > [slot="titlebar"] {
+  background: var(--rc-color-yellow);
+  color: var(--rc-color-bright-ink);
+}
+
+rc-card[tone="peach"] > [slot="titlebar"] {
+  background: var(--rc-color-peach);
+  color: var(--rc-color-ink);
+}
+
+rc-card[tone="mint"] > [slot="titlebar"] {
+  background: var(--rc-color-mint);
+  color: var(--rc-color-ink);
 }
 
 .docs-section {

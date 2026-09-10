@@ -81,7 +81,9 @@
 }
 
 .docs-nav-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: var(--rc-min-target);
   padding: var(--rc-space-xs) var(--rc-space-md);
   border-radius: var(--rc-radius-pill);
   border: var(--rc-border-width) solid var(--rc-color-border);

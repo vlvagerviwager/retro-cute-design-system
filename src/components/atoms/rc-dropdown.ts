@@ -35,6 +35,7 @@ export class RcDropdown extends LitElement {
       border: var(--rc-border-width) solid var(--rc-color-border);
       border-radius: var(--rc-radius-control);
       padding: var(--rc-space-sm) var(--rc-space-md);
+      min-height: var(--rc-min-target);
       outline-offset: var(--rc-border-width);
       min-width: 0;
     }
