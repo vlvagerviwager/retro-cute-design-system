@@ -47,7 +47,7 @@ Push to `main`: `.github/workflows/deploy.yml` installs with Bun, runs the token
 * `bun run typecheck`: run `tsc --noEmit`
 * `bun run lint:tokens`: fail on raw hex / pixel literals outside the token sources
 * `bun run check:contrast`: verify WCAG AA contrast ratios for every theme pair
-* `bunx pa11y-ci --config .pa11yci.json`: audit the built pages against WCAG2AA (serve `dist/` on port 5321 first, for example with `python3 -m http.server 5321 --directory dist`)
+* `bun run audit`: build the site and audit the pages against WCAG2AA with pa11y
 
 ## Tech stack
 

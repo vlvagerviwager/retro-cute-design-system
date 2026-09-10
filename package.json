@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "bun test",
+    "audit": "bun scripts/audit-a11y.ts",
     "check:contrast": "bun scripts/check-contrast.ts",
     "lint:tokens": "bun scripts/check-no-magic.ts"
   },
